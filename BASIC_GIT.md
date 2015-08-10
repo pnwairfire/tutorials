@@ -9,15 +9,14 @@ I won't go into why git or other version control systems are good for projects
 with multiple developers. Here are some reasons why you'd use it even if working
 solo:
 
- - it makes reverting easy  (```git revert```)
- - you can play around with code, debug, etc. without worrying about remembering how to undo your changes (since you can easily revert, or you can work in another branch)
- - easy to backup and restore code (assuming you push your commits to a remote server, such as on github.com or bitbucket.org)
- - there are built in ways to maintain multiple versions of the code base
- - you can easily see the history of changes, and see the difference between different versions or states of the code
- - helps track down when bugs were introduced and where (see [```git bisect```](https://www.kernel.org/pub/software/scm/git/docs/git-bisect.html) and ```git blame```)
- - easy to share code (even if not collaborating)
- - in case you do end up collaborating on the code, you'll get all the git supports for collaboration
- - you can work on multiple features at without coupling the changes (using branches, or ```git stash``` to quickly make a change while having other changes in progress)
+ - You don't lose anything (well, at least not anything that was every committed).  You can recover anything that's in the repo history. If you get in the habit of commiting frequently, you'll likely stop commenting out code code; you just delete it.
+ - Reverting is easy. (See [```git revert```](https://www.kernel.org/pub/software/scm/git/docs/git-revert.html)). You can play around with code, debug, etc. without worrying about remembering how to undo your changes. You can always get back to a previous state.
+ - You can use git to backup and restore code (assuming you push your commits to a remote server, such as on github.com or bitbucket.org)
+ - You can use branches to maintain multiple versions of the code base, or parallel lines of development.  (See [```git branch```](https://www.kernel.org/pub/software/scm/git/docs/git-branch.html).  See also [```git stash```](https://www.kernel.org/pub/software/scm/git/docs/git-stash.html), which is useful for quickly making a change when you have other changes in progress.)
+ - You can easily see the history of changes, and see the difference between different versions or states of the code.  If you've been away from the code for some time, you can easily see what you most recently did. (See [```git log```](https://www.kernel.org/pub/software/scm/git/docs/git-log.html))
+ - Git helps with tracking down when and where bugs were introduced. (see [```git bisect```](https://www.kernel.org/pub/software/scm/git/docs/git-bisect.html) and [```git blame```](https://www.kernel.org/pub/software/scm/git/docs/git-blame.html))
+ - Git facilitates sharing code (even if not collaborating).
+ - In case you do end up collaborating on the code, you'll get all that git supports for collaboration.
 
 ## Creating a repo from scratch
 
@@ -100,7 +99,7 @@ And push your local commits (assuming your in the master branch):
 
     git push origin master
 
-If you do end up collaborating, you can merge others' commits with ```git pull``, which is
+If you do end up collaborating, you can merge others' commits with ```git pull```, which is
 effectively a ```git fetch origin``` followed by a ```git merge mater```. (You can use the
 ```--rebase``` option to rebase instead of merging othe fetched commits into your local repo.
 See [```git rebase```](https://www.kernel.org/pub/software/scm/git/docs/git-rebase.html))
