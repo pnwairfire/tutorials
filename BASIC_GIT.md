@@ -42,7 +42,16 @@ Create the script:
 
     chmod 755 pyecho.py
 
-Add and commit the script to the git repo
+Run it:
+
+    $ ./pyecho.py
+    > foo
+    foo
+    > bar
+    bar
+    >
+
+Now, add and commit the script to the git repo
 
     git add pyecho.py
     git commit -m "Initial version of pyecho.py"
@@ -51,27 +60,89 @@ Now let's say you change the prompt from '>' to '>>':
 
     sed -i.bak -e 's/"> "/">> "/' pyecho.py
 
-Now add and commit the change:
+Run it to see the change
+
+    $ ./pyecho.py
+    >> foo
+    foo
+    >> bar
+    bar
+    >>
+
+Now add the change:
 
     git add -p
-    git commit -m "Changed prompt"
 
-Notice that ```git add -p``` ....
+Notice the use of ```-p``` in ```git add -p```.  This lets you cherry pick
+'hunks' of code changes to include in your commit.  In current case, there's only
+one 'hunk'.  You'll see:
+
+    $ git add -p
+    diff --git a/pyecho.py b/pyecho.py
+    index 6cc3ace..1f0707b 100755
+    --- a/pyecho.py
+    +++ b/pyecho.py
+    @@ -2,7 +2,7 @@
+     import sys
+
+     while True:
+    -    sys.stdout.write("> ")
+    +    sys.stdout.write(">> ")
+         line = raw_input()
+         sys.stdout.write(line + "\n")
+
+    Stage this hunk [y,n,q,a,d,/,e,?]? y
+
+In cases where you have lots of pending code changes, ```-p``` lets commit
+subsets of hunks that logically go together.
+
+Commit the change
+
+    git commit -m "Changed prompt"
 
 Now, try the following:
 
     git status
 
-You'll see..... You can tell git to ignore.....
+You'll see:
+
+    $ git status
+    On branch master
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+
+            pyecho.py.bak
+
+    nothing added to commit but untracked files present (use "git add" to track)
+
+The ```pyecho.py.bak``` is an artifact of using sed.  Since you don't want to commit
+it to the repo, you can tell git to ignore it.
 
     echo "*.bak" > .gitignore
 
-Now, if you do a git status...... Add and commit .gitignore
+Now, if you do a git status, you'll no longer see ```pyecho.py.bak```, though you'll see
+the new .gitignore:
+
+    $ git status
+    On branch master
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+
+            .gitignore
+
+    nothing added to commit but untracked files present (use "git add" to track)
+
+Add and commit .gitignore:
 
     git add .gitignore
     git commit -m "Ignore *.bak files"
 
-You'll see that
+git status will now tell you that you have no more pending changes or untracked files,
+even though ```pyecho.py.bak``` still exists
+
+    $ git status
+    On branch master
+    nothing to commit, working directory clean
 
 ## Creating a repo out of existing code
 
