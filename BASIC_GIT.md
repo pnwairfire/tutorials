@@ -51,7 +51,7 @@ Run it:
     bar
     >
 
-Now, add and commit the script to the git repo
+Kill it (ctrl-c) and then add and commit the script to the git repo
 
     git add pyecho.py
     git commit -m "Initial version of pyecho.py"
@@ -69,13 +69,13 @@ Run it to see the change
     bar
     >>
 
-Now add the change:
+Kill it (ctrl-c) and add the change:
 
     git add -p
 
-Notice the use of ```-p``` in ```git add -p```.  This lets you cherry pick
-'hunks' of code changes to include in your commit.  In current case, there's only
-one 'hunk'.  You'll see:
+Notice the use of ```-p``` in ```git add -p```.  This lets you cherry pick 'hunks'
+of code changes to include in your commit.  In the current case, there's only one
+'hunk'.  You'll see:
 
     $ git add -p
     diff --git a/pyecho.py b/pyecho.py
@@ -185,6 +185,8 @@ If you want to undo your last commit:
     git commit
 
 Git will create a message for you, which you can override or modify if you wish.
+Git will open up the message in your default text editor.  (You can [configure
+git to use an alternative editor](https://duckduckgo.com/?q=git+configure+editor).)
 
 If you want to revert a commit that's not necessarily your last one:
 
