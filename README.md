@@ -7,5 +7,5 @@ more advanced guides.
 
 ## Topics
 
- - [git](BASIC_GIT.md)
- - [debugging python](DEBUGGING_PYTHON.md)
+ - [git](git/BASIC_GIT.md)
+ - [debugging python](python/DEBUGGING_PYTHON.md)

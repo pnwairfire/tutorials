@@ -17,12 +17,12 @@ This tutorial focuses on using pdb to debug python.
         f = 13.23 / (e + 3)
         g = f / 34
         r = g + 2 + 4 + + 100
-        sys.stdout.write('And the answer is {}\n'.format(r))
+        sys.stdout.write("And the answer is {}\n".format(r))
 
     try:
         foo()
     except:
-        sys.stdout.write('*** Uh uh, this script failed, and the reason is hidden by this try/except ***\n')
+        sys.stdout.write("*** Uh uh, this script failed, and the reason is hidden by this try/except ***\n")
     '
 ## Run it and debug with pdb
 
