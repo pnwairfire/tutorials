@@ -1,7 +1,7 @@
 # git
 
 This is by no means an exhaustive tutorial on git.  It's just a basic guide to
-get aquainted with git.
+get acquainted with git.  Also, it's a work in progress...
 
 ## Why use git
 
