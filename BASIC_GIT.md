@@ -201,8 +201,9 @@ To create a new branch:
 
 This will create a branch off of your current branch (which often is
 ```master```).  Once in this branch, commit and merge as you normally would.
-When you want to fetch and merge commits from another branch, for example
-master, use
+Let's say you're working with a remote repo, and other develpoers are commiting
+changes to master. When you want to fetch and merge the commits from master, use
+the following:
 
     git fetch
     git merge master
@@ -216,6 +217,11 @@ and merge your branch
 When you're done with your branch, delete it:
 
     git branch -d my-new-branch
+
+List the branches to confirm that it was deleted:
+
+    $ git br -a
+    * master
 
 ## Conveniences
 
