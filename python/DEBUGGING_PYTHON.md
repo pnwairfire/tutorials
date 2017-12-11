@@ -23,7 +23,9 @@ This tutorial focuses on using pdb to debug python.
         foo()
     except:
         sys.stdout.write("*** Uh uh, this script failed, and the reason is hidden by this try/except ***\n")
-    '
+    ' > ./buggy.py
+    chmod a+x ./buggy.py
+
 ## Run it and debug with pdb
 
     ./buggy.py
